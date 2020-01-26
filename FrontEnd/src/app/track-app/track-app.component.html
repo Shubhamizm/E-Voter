@@ -1,0 +1,31 @@
+<div class="container">
+    <h2 style="margin-top: 20px; margin-bottom: 20px;text-align: center;">Your Applications </h2>
+    
+    <table class="table table-bordered shadow shadow-sm  rounded">
+      <thead>
+      <tr>
+        <th scope="col">S. No.</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Application Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Comments</th>
+        <th scope="col">Download Link</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let details of appdetails; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ details.userid }}
+        </td>
+        <td contenteditable="true">{{ details.date | date }}</td>
+        <td>{{ details.status }}</td>
+        <td>{{ details.comment }}</td>
+        <td>Not available</td>
+
+   
+        
+      </tr>
+      </tbody>
+    </table>
+    </div>

@@ -1,0 +1,137 @@
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                  <div class="alert alert-success" *ngIf="success" role="alert" style="margin-bottom: 20px;">
+                    Application Submitted Sucessfully!!
+                  </div>
+  
+                    <!-- form card login -->
+                    <div class="card rounded shadow shadow-sm" style="margin-bottom: 100px;">
+                        <div class="card-header">
+                            <legend>Application for Voter ID</legend>
+                        </div>
+                        <div class="card-body">
+<form [formGroup]="appdata" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <!-- <legend>Form Name</legend> -->
+    
+    <!-- Text input-->
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="textinput">Full Name :</label>  
+      <div class="col-md-4">
+      <input type="text" formControlName="fullname" placeholder="Name" class="form-control input-md" [ngClass]="{'is-invalid': f.fullname.errors && ( f.fullname.touched || f.fullname.dirty)}">
+      <div class="invalid-feedback">
+        <div *ngIf="f.fullname.errors?.required"> Please enter your full name!</div>
+   </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="Father's Name">Father's Name :</label>  
+      <div class="col-md-4">
+      <input type="text" formControlName="fathername" placeholder="Enter Father's Name" class="form-control input-md" [ngClass]="{'is-invalid': f.fathername.errors && ( f.fathername.touched || f.fathername.dirty)}">
+      <div class="invalid-feedback">
+        <div *ngIf="f.fathername.errors?.required"> Please enter father's name!</div>
+   </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="motherName">Mother's Name :</label>  
+      <div class="col-md-4">
+      <input type="text" formControlName="mothername" placeholder="Enter Mother's Name" class="form-control input-md" [ngClass]="{'is-invalid': f.mothername.errors && ( f.mothername.touched || f.mothername.dirty)}">
+      <div class="invalid-feedback">
+        <div *ngIf="f.mothername.errors?.required"> Please enter mother's name!</div>
+   </div>
+      </div>
+    </div>
+
+      <!-- Textarea -->
+      <div class="form-row">
+        <label class="col-md-4 control-label" for="textarea">Full Address :</label>
+        <div class="col-md-4">                     
+          <textarea class="form-control" formControlName="address" [ngClass]="{'is-invalid': f.address.errors && ( f.address.touched || f.address.dirty)}"></textarea>
+          <div class="invalid-feedback">
+            <div *ngIf="f.address.errors?.required"> Please enter complete address!</div>
+       </div>
+        </div>
+      </div>
+      <!-- Text input-->
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="textinput">Aadhar Card No :</label>  
+      <div class="col-md-4">
+      <input formControlName="aadhar" type="text" placeholder="Aadhar Card Number" class="form-control input-md" [ngClass]="{'is-invalid': f.aadhar.errors && ( f.aadhar.touched || f.aadhar.dirty)}">
+      <div class="invalid-feedback">
+        <div *ngIf="f.aadhar.errors?.required"> Please enter Aadhar Card number!</div>
+   </div>
+      </div>
+    </div>
+    
+
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="filebutton">Aadhar Card :</label>
+      <div class="col-md-4">
+        <input formControlName="aadharimg" class="input-file" type="file" (change)="onFileSelected($event)">
+      </div>
+    </div>
+    
+<!--  
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="filebutton">One Address Proof :</label>
+      <div class="col-md-4">
+        <input formControlName="otherimg" class="input-file" type="file">
+      </div>
+    </div> -->
+    
+    
+    
+  
+    
+    <!-- Button (Double) -->
+    <div class="form-row">
+      <label class="col-md-4 control-label" for="preview"></label>
+      <div class="col-md-8">
+        <input type="button" [disabled]="appdata.invalid" name="preview" class="btn btn-primary" (click)="openLg(content)" value="Preview"> 
+        <button id="submitapp" type="submit" [disabled]="appdata.invalid"  name="submitapp" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Information You Entered</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Full Name : {{appdata.get('fullname').value}}  </p>
+    <p>Father's Name : {{appdata.get('fathername').value}}  </p>
+    <p>Mother's Name : {{appdata.get('mothername').value}}  </p>
+    <p>Address : {{appdata.get('address').value}}  </p>
+    <p>Aadhar Card No. : {{appdata.get('aadhar').value}}  </p>
+    <p>
+      Aadhar Card : 
+    <img [src]="selectedfile" style="width: 300px; height: 200px;">
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

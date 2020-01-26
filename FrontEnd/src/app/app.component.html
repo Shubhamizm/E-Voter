@@ -1,0 +1,27 @@
+<!-- <html>
+    <body><app-home-nav-bar></app-home-nav-bar>
+
+<app-application-form></app-application-form>
+<div class="footer shadow-sm">
+    <p>Footer</p>
+  </div>
+ 
+<div class="footer shadow-lg navbar-expand-md navbar-light bg-light">
+    <div class="container ">
+      <p class="footer-block">Cdac Project.</p>
+    </div>
+  </div>
+</body>
+</html> -->
+<!-- <router-outlet></router-outlet> -->
+<ng-container *ngIf="dummy.isloggedin(); else elseTemplate">
+  <ng-container *ngIf="dummy.isadmin(); else elseTemplate">
+    <app-admindashboard></app-admindashboard>
+  </ng-container>
+  <ng-template #elseTemplate> 
+  <app-userdashboard></app-userdashboard> 
+  </ng-template> 
+</ng-container>
+<ng-template #elseTemplate>
+  <app-welcome></app-welcome>
+</ng-template>

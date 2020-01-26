@@ -1,0 +1,67 @@
+
+<body>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+              <div class="row">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+    
+                      <!-- form card login -->
+                      <div class="card rounded shadow shadow-sm " style="margin-bottom: 100px;">
+                          <div class="card-header">
+                              <h4>Update Your Details</h4>
+                          </div>
+                          <div class="card-body">
+                              <form [formGroup]="editform" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" class="form-control" formControlName="fullname"  [ngClass]="{'is-invalid': f.fullname.errors && ( f.fullname.touched || f.fullname.dirty)}" placeholder="Enter Your Full Name">
+                                    <div class="invalid-feedback">
+                                       <div *ngIf="f.fullname.errors?.required"> Please enter your full name!</div>
+                                  </div>
+                                </div>
+                                  <div class="form-group">
+                                      <label for="email">Email</label>
+                                      <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': f.email.errors && ( f.email.touched || f.email.dirty)}" placeholder="Enter Email">
+                                      <div class="invalid-feedback" >
+                                          <div *ngIf="f.email.errors?.required">This field can't be empty!</div>
+                                          <div *ngIf="f.email.errors?.email">Please enter a valid email address!</div>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>New Password</label>
+                                      <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': f.password.errors && ( f.password.touched || f.password.dirty)}" placeholder="Enter New Password">
+                                      <div class="invalid-feedback">
+                                         <div *ngIf="f.password.errors?.required"> Please enter your password!</div>
+                                         <div *ngIf="f.password.errors?.minlength"> Password should of minimum 6 digits!</div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control" formControlName="ConfirmPassword" [ngClass]="{'is-invalid': f.ConfirmPassword.errors && ( f.ConfirmPassword.touched || f.ConfirmPassword.dirty)}" placeholder="Confirm Your New Password">
+                                    <div class="invalid-feedback">
+                                       <div *ngIf="f.ConfirmPassword.errors?.required"> Please confirm your password!</div>
+                                       <div *ngIf="f.ConfirmPassword.errors?.mustMatch"> Passwords must match!</div>
+                                  </div>
+                                </div>
+                                  <button type="submit" [disabled]="editform.invalid"  class="btn btn-success btn-primary float-right" id="btnLogin" >Update</button>
+                              </form>
+                          </div>
+                          <!--/card-block-->
+                      </div>
+                      <!-- /form card login -->
+    
+                  </div>
+    
+    
+              </div>
+              <!--/row-->
+    
+          </div>
+          <!--/col-->
+      </div>
+      <!--/row-->
+    </div>
+    </body>
+    <!--/container-->
+

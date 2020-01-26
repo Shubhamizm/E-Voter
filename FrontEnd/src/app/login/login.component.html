@@ -1,0 +1,63 @@
+
+    <div class="container">
+        
+      <div class="row">
+          <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+          
+
+              <div class="row">
+               
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="alert alert-danger" *ngIf="error" role="alert" style="margin-bottom: 20px;">
+                        {{ msg }}
+                      </div>
+                      <div class="alert alert-success" *ngIf="success" role="alert" style="margin-bottom: 20px;">
+                        {{ msg }}
+                      </div>
+                  
+                      <!-- form card login -->
+                      <div class="card rounded shadow shadow-sm" style="margin-bottom: 100px;">
+                          <div class="card-header">
+                              <legend>Login</legend>
+                          </div>
+                          <div class="card-body">
+                              <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+                                  <div class="form-group">
+                                      <label for="email">Email</label>
+                                      <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': loginform.get('email').errors && ( loginform.get('email').touched || loginform.get('email').dirty)}" placeholder="Enter Email">
+                                      <div class="invalid-feedback" >
+                                          <div *ngIf="loginform.get('email').errors?.required">This field can't be empty!</div>
+                                          <div *ngIf="loginform.get('email').errors?.email">Please enter a valid email address!</div>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Password</label>
+                                      <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': loginform.get('password').errors && ( loginform.get('password').touched || loginform.get('password').dirty)}" placeholder="Enter Password">
+                                      <div class="invalid-feedback">
+                                         <div *ngIf="loginform.get('password').errors?.required"> Enter your password too!</div>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Remember Me</label>
+                                  </div> -->
+                                  <button type="submit" [disabled]="loginform.invalid"  class="btn btn-dark btn-primary float-right" id="btnLogin" >Login</button>
+                              </form>
+                          </div>
+                          <!--/card-block-->
+                      </div>
+                      <!-- /form card login -->
+    
+                  </div>
+    
+    
+              </div>
+              <!--/row-->
+    
+          </div>
+          <!--/col-->
+      </div>
+      <!--/row-->
+    </div>
+    <!--/container-->
+

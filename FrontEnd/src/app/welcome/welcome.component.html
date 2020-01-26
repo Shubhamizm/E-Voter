@@ -1,0 +1,35 @@
+
+<body>
+<nav class="navbar shadow shadow-sm navbar-expand-md navbar-light bg-light sticky-top" style="height: 50px;">
+    <!-- <a href="#" class="navbar-brand">Online VoterID</a> -->
+    <a [routerLink]="['/homewel']"  class="navbar-item">
+        <img src="assets/img/logo.jpg" style="height: 40px;">
+      </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      
+        <div class="navbar-nav">
+           
+            <a [routerLink]="['/about']"  class="nav-item nav-link">About</a>
+            <a [routerLink]="['/contact']"  class="nav-item nav-link">Contact</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a [routerLink]="['/login']" class="nav-item nav-link">Login</a> 
+            <a [routerLink]="['/signup']" class="nav-item nav-link">Sign Up</a> 
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+<div class="footer shadow-lg navbar-expand-md navbar-light bg-light">
+    <div class="container ">
+      <p class="footer-block">&copy; Cdac Project.</p>
+    </div>
+  </div>
+
+</body>

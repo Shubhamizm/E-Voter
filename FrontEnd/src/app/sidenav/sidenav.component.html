@@ -1,0 +1,38 @@
+<html>
+  <body>
+<mat-sidenav-container  fullscreen >
+    <mat-sidenav mode="over" #sidenav opened="false" position="start">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/" > <mat-icon>home</mat-icon> &nbsp;&nbsp;Home </a>
+        <a mat-list-item routerLink="/application"> <mat-icon>assignment</mat-icon> &nbsp;&nbsp;Apply For Voter ID </a>
+        <a mat-list-item routerLink="/track"> <mat-icon>assignment</mat-icon> &nbsp;&nbsp;Check Status </a>
+        <a mat-list-item routerLink="/faq"> <mat-icon>help</mat-icon> &nbsp;&nbsp;FAQs </a>
+        <a mat-list-item routerLink="/contact"> <mat-icon>contact_mail</mat-icon> &nbsp;&nbsp;Contact </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content >
+      <mat-toolbar class=" shadow shadow-sm" style="height: 50px;" >
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- <span style="padding-left: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Online VoterID</span> -->
+        <a [routerLink]="['/homeuser']" class="navbar-item">
+          <img src="assets/img/logo.jpg" style="height: 40px;">
+        </a>
+        <span class="toolbar-spacer"></span>
+        <mat-menu #appMenu="matMenu" color="white" >
+          <button mat-menu-item routerLink="/edit" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            <mat-icon>create</mat-icon>Edit Profile</button>
+          <button mat-menu-item (click)="logout()" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            <mat-icon>exit_to_app</mat-icon>Logout
+          </button>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>person_outline</mat-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</body>
+  </html>

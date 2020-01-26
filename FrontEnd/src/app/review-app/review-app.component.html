@@ -1,0 +1,78 @@
+<div class="container large">
+    <h1 style="margin-top: 20px; margin-bottom: 20px;text-align: center;">Review Applications </h1>
+    
+    <table class="table table-bordered shadow shadow-sm  rounded">
+      <thead>
+      <tr>
+        <th scope="col">S No.</th>
+        <th scope="col">Application Date</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Application Number</th>
+        <th scope="col">Select Status</th>
+        <th scope="col">Comments</th>
+        <th scope="col">View Application</th>
+        <th scope="col c">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let details of Appdeatils; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ details.date | date | uppercase}}
+        </td>
+        <td id="userid">{{ details.userid }}</td>
+        <td >{{ details.appnumber }}</td>
+        <td>
+          <span *ngIf="enableEditIndex != i">{{ details.status }}</span>
+          <select *ngIf="enableEdit && enableEditIndex == i" [(ngModel)]="details.status">
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+            <option value="In Review">In Review</option>
+          </select>
+        </td>
+        <td>
+          <span *ngIf="enableEditIndex != i">{{ details.comment }}</span>
+          <input type="text" style="width: 160px;height: 25px;" [(ngModel)]="details.comment" *ngIf="enableEdit && enableEditIndex == i" />
+        </td>
+
+        <td>
+           <button class="btn btn-danger" (click)="openLg(content); getdata(details)"> Review </button>
+        </td>
+        <td width="175">
+          <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false; cancel()" class="btn btn-primary" style="margin-right: 10px;">Cancel</button>
+          <!-- <br *ngIf="enableEdit && enableEditIndex == i">
+          <br *ngIf="enableEdit && enableEditIndex == i"> -->
+          <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn btn-success" (click)="saveSegment(details)" type="submit">Save</button>
+          <button class="btn btn-primary" *ngIf="i != enableEditIndex || enableEditIndex == null" (click)="enableEditMethod($event, i)">
+            Edit
+          </button>
+      </td>
+        
+      </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Application Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Father's Name : {{userdata.fullname}}</p>
+          <p>Mother's Name : {{userdata.fathername}}</p>
+          <p>Address : {{userdata.mothername}}</p>
+          <p>Adhar Card Number : {{userdata.aadhar}}</p>
+          <p>Date of Birth : {{userdata.address}}</p>
+          <p>
+            Aadhar Card : 
+          <img [src]="image" style="width: 316px; height: 201px;">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>

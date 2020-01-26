@@ -1,0 +1,29 @@
+
+  .footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 50px;
+   
+  }
+
+  .footer-block {
+    margin: 10px 0;
+  }
+
+body {
+    position:fixed;
+    top:0px;
+     bottom:0px;
+    left:0px;
+    right:0px;
+     background-image: url('/assets/img/background.jpg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100%;
+}
+
+.navbar-collapse {
+  background: white;
+}

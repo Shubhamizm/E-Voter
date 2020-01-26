@@ -1,0 +1,53 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+
+html,
+body {
+    position:fixed;
+    top:0px;
+     bottom:0px;
+    left:0px;
+    right:0px;
+}
+
+.mat-drawer, .mat-menu { 
+    background-color: white;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+    background-color: white;
+}
+
+::ng-deep .mat-menu-content{
+    background-color: white;
+  }
+
+
+ 
+ .mat-toolbar.mat-primary {
+     background: #3f51b5;
+     color: #fff;
+     position: relative;
+ }
+
+ .sidenav-container {
+    position:fixed;
+    width:100%;
+    z-index:-1;
+  }
+
+  .tbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}

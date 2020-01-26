@@ -1,0 +1,13 @@
+input, textarea,label
+{
+
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .btn, btn-primary,btn-success
+  {
+      margin-right: 30px;
+  }
